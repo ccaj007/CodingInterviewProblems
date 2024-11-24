@@ -1,3 +1,7 @@
+######################################
+# DOESN'T WORK LOCALLY , ListNode
+#
+####################################
 '''
 https://leetcode.com/problems/reverse-linked-list/description/
 
@@ -30,6 +34,9 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
+    def __repr__(self):
+        return "ListNode(val=" + str(self.val) + ", next={" + str(self.next) + "})"
 
 class Solution:
     def reverseList(self, head: ListNode) -> ListNode:

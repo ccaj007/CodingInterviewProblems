@@ -1,17 +1,17 @@
-from typing import List
 
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i in range(len(nums)):
-            for j in range(1,len(nums)):
-                if nums[i] + nums[j] == target:
-                    return i, j
-                
+def lengthOfLongestSubstring(s: str) -> int:
+    charSet = set()
+    l = 0
+    res = 0
 
-nums = [2,7,11,15]
-target = 9
-a = Solution()
-print(a.twoSum(nums, target))
+    for r in range(len(s)):
+        while s[r] in charSet:
+            charSet.remove(s[l])
+            l += 1
+        
+        charSet.add(s[r])
+        res = max(res, r - l + 1)
+    return res
 
-
-
+s = "pwwkew"
+print(lengthOfLongestSubstring(s))
