@@ -10,3 +10,11 @@ def climbStairs(n: int) -> int:
 
 n = 5
 print(climbStairs(n))
+
+
+b: int = 10
+c: int = '44'
+
+b: int = 'jkdsjafkl'
+
+z: int = 'fjdklasd'
