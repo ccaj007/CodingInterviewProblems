@@ -15,26 +15,36 @@ explanation:
 2nd is 7
 3rd is 7
 4th is 6
+
+solution:
+https://www.youtube.com/watch?v=XEmy13g1Qxc&t=916s
+QuickSelect
 '''
 
 arr = [4, 2, 9, 7, 5, 6, 7, 1, 3]
 k = 4
 
-def findKthLargest(nums: List[int], k: int) -> int:
-    b = sorted(nums, reverse=True)
-    return b[k-1]
+def findKthLargest(nums: list[int], k: int) -> int:
 
-print(kthlargest(arr, k))
+    # b = sorted(nums, reverse=True)
+    # return b[k-1]
 
-# import random
+    k = len(nums) - k
 
-# def test(nums, k):
-#     pivot = random.choice(nums)
-#     print(pivot)
-#     left = [x for x in nums if x > pivot]
-#     mid = [x for x in nums if x == pivot]
-#     right = [x for x in nums if x < pivot]
+    def quickSelect(l, r):
+        pivot, p = nums[r], l
+        for i in range(l, r):
+            if nums[i] <= pivot:
+                nums[p], nums[i] = nums[i], nums[p]
+                p += 1
+        nums[p], nums[r] = nums[r], nums[p]
 
-#     print(f'{left= }, {mid= }, {right= }')
+        if p > k:   return quickSelect(l, p - 1)
+        elif p < k: return quickSelect(p + 1, r)
+        else:       return nums[p]
 
-# test(arr, k)
+    return quickSelect(0, len(nums) - 1)
+
+print(findKthLargest(arr, k))
+
+

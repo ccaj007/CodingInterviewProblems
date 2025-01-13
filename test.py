@@ -1,17 +1,7 @@
+def house(n:list):
+    r = 0
+    r = r + max(n[0], n[1])
+    print(r)
 
-def lengthOfLongestSubstring(s: str) -> int:
-    charSet = set()
-    l = 0
-    res = 0
-
-    for r in range(len(s)):
-        while s[r] in charSet:
-            charSet.remove(s[l])
-            l += 1
-        
-        charSet.add(s[r])
-        res = max(res, r - l + 1)
-    return res
-
-s = "pwwkew"
-print(lengthOfLongestSubstring(s))
+nums = [1, 2, 3, 1]
+house(nums)
