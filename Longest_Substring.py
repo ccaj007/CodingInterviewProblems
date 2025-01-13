@@ -1,12 +1,9 @@
 '''
 https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
-https://www.youtube.com/watch?v=sUicrnHwA0s
 
 Given a string s, find the length of the longest
 substring
 without repeating characters.
-
- 
 
 Example 1:
 
@@ -26,28 +23,27 @@ Input: s = "pwwkew"
 Output: 3
 Explanation: The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+solution:
+https://www.youtube.com/watch?v=sUicrnHwA0s
+
+sliding window
 '''
 
 def lengthOfLongestSubstring(s: str) -> int:
-    sub = {}
-    cur_sub_start = 0
-    cur_length = 0
+    sub = set()
+    l = 0
     longest = 0
 
-    for i, letter in enumerate(s):
+    for r in range(len(s)):
+        while (s[r] in sub):
+            sub.remove(s[l])
+            l += 1
 
-        if letter in sub and sub[letter] >= cur_sub_start:
-            cur_sub_start = sub[letter] + 1
-            cur_length =  i - sub[letter]
-            sub[letter] = i
+        sub.add(s[r])
+        longest = max(longest, r - l + 1)
 
-        else:
-            sub[letter] = i
-            cur_length += 1
-            if cur_length > longest:
-                longest = cur_length
-
-    return(longest)
+    return longest
 
 s = "abcabcbb"
 print(lengthOfLongestSubstring(s))

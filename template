@@ -1,0 +1,13 @@
+'''
+
+solution: 
+
+'''
+
+from typing import List
+
+class Solution:
+
+
+a = Solution()
+a.func()

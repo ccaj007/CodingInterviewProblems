@@ -1,4 +1,7 @@
-a = [1, 11, 3, 0, 15, 5, 2, 4, 10, 7, 12, 6, 11]
+def house(n:list):
+    r = 0
+    r = r + max(n[0], n[1])
+    print(r)
 
-numset = set(a)
-print(numset)
+nums = [1, 2, 3, 1]
+house(nums)

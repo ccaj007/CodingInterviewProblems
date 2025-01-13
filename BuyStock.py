@@ -28,8 +28,9 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 https://www.youtube.com/watch?v=1pkOgXD63yU&list=PLot-Xpze53leOBgcVsJBEGrHPd_7x_koV&index=2
 
 '''
+from typing import List
 
-def maxProfit(prices: list[int]) -> int:
+def maxProfit(prices: List[int]) -> int:
     profit = 0
     cur = prices[0]
     for i in prices[1:]:

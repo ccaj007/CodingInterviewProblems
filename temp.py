@@ -1,12 +1,10 @@
-def climbStairs(n: int) -> int:
-    if n == 0:
-        return 0
-    if n == 1: 
-        return 1
-    
-    return climbStairs(n-1) + climbStairs(n-2)
+from collections import Counter
 
+str = 'danger'
 
+print(Counter(str))
 
-n = 5
-print(climbStairs(n))
+def anagram(str1, str2):
+    if len(str1) != len(str2):
+        return False
+    return sorted(str1) == sorted(str2)

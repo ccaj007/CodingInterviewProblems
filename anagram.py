@@ -1,3 +1,9 @@
+'''
+given two strings, s1 and s2, check if they are anagrams of each other
+
+anagrams if they are made of the same characters with the same frequency
+
+'''
 s1 = "danger"
 s2 = "garden"
 
